@@ -1,0 +1,63 @@
+<html ng-app="pdfApp">
+    <head>
+
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.11/angular.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.11/angular-animate.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.11/angular-aria.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.11/angular-messages.min.js"></script>
+        <script src="https://cdn.rawgit.com/angular/bower-material/master/angular-material.min.js"></script>
+        <link href="https://cdn.rawgit.com/angular/bower-material/master/angular-material.min.css" rel="stylesheet">
+        
+        <link rel="stylesheet" href="./bower_components/lf-ng-md-file-input/dist/lf-ng-md-file-input.css">
+        <script src="./bower_components/lf-ng-md-file-input/dist/lf-ng-md-file-input.js"></script>
+        <title>Pdf preview</title>
+        <script src="app/controllers/app.js"></script>
+        <link rel="stylesheet" href="app/view/css/style.css">
+      
+    </head>
+    <body>
+      <div ng-cloak ng-controller="appController">
+      
+        <md-content class="tabs-container">
+          <md-tabs md-dynamic-height md-border-bottom md-no-select-click="true" md-selected="activeTab">
+            <md-tab label="Upload PDF">
+              <md-content class="">
+                <form name="pdfUploadForm" layout="column">
+                    <lf-ng-md-file-input name="uploadFile " lf-files="files" lf-api="api" lf-mimetype="application/pdf" drag preview></lf-ng-md-file-input>
+                    <div ng-messages="pdfUploadForm.uploadFile.$error" style="color:red;">
+
+                        <div ng-message="mimetype"></div>
+                    </div>
+                </form>
+              </md-content>
+            </md-tab>
+            <md-tab   label="Preview">
+              <md-content class="">
+                
+                   
+                  <md-card ng-if="isUpload">
+                    
+                    <md-card-title>
+                    
+                    </md-card-title>
+                    <md-card-content>
+                      <p>
+                        In order to preview pdf please upload pdf file.
+                      </p>
+                      <md-button class="md-raised md-primary md-button md-ink-ripple" ng-if="isUpload" ng-click="changeStep(0)">Upload pdf</md-button>
+                    </md-card-content>
+                  </md-card>
+                  
+      
+                
+                <iframe ng-if="preview" ng-src="{{url}}" ></iframe>
+                <!-- src="/preview" -->
+              </md-content>
+            </md-tab>
+          </md-tabs>
+        </md-content>
+      </div>
+    </body>
+</html>
