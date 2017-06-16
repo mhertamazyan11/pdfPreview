@@ -15,5 +15,5 @@ app.get('/preview', function (req, res) {
 })
 
 app.listen(8080, function () {
-  console.log('Example app listening on port !'+port)
+  console.log('Example app listening on port 8080');
 })
