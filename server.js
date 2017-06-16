@@ -11,8 +11,8 @@ app.get('/', function (req, res) {
 })
 
 app.get('/preview', function (req, res) {
-  res.sendFile('./preview.html')
-    // res.sendFile(path.join(__dirname+'/about.html'));
+  res.sendFile(path.join(__dirname+'/public/preview.html'))
+
 })
 
 app.listen(port, function () {
