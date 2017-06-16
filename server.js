@@ -5,12 +5,12 @@ var path = require("path");
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.get('/', function (req, res) {
-  res.sendFile('C:/Users/user/Desktop/exampleTask/index.html')
+  res.sendFile('./index.html')
     // res.sendFile(path.join(__dirname+'/about.html'));
 })
 
 app.get('/preview', function (req, res) {
-  res.sendFile('C:/Users/user/Desktop/exampleTask/preview.html')
+  res.sendFile('./preview.html')
     // res.sendFile(path.join(__dirname+'/about.html'));
 })
 
