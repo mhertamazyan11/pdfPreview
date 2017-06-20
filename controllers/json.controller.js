@@ -2,7 +2,8 @@ module.exports = {};
 var basePath = 'https://pdf-demo.herokuapp.com/images/';
 
 module.exports.getJson = function(req,res){
-	jsonData = [
+	jsonData ={
+		'data':[
 		{
 			
 			'country':'Armenia',
@@ -377,7 +378,8 @@ module.exports.getJson = function(req,res){
 			]
 
 		}
-	];
+	]
+	};
 
 	res.json(jsonData);
 }
