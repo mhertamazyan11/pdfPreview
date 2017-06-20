@@ -17,7 +17,7 @@ app.get('/preview', function (req, res) {
 })
 
 
-app.get('/getJsonData', jsonController.getJson);
+app.get('/getJsonData/:sortType', jsonController.getJson);
 
 app.listen(port, function () {
   console.log('Example app listening on port '+port);
